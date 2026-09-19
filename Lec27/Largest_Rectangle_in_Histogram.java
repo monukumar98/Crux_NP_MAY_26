@@ -36,6 +36,7 @@ public class Largest_Rectangle_in_Histogram {
 				area=Math.max(area, h*(r-l-1));
 			}
 		}
+		return area;
 		
 	}
 
