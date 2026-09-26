@@ -27,7 +27,7 @@ public class Reverse_Nodes_in_k_Group {
 			ListNode temp = dummy;
 			ListNode start = head;
 			Stack<ListNode> st = new Stack<>();
-			while (head != null) {
+			while (head != null || st.size()==k) {
 				if (st.size() == k) {
 					start = head;
 					while (!st.isEmpty()) {
