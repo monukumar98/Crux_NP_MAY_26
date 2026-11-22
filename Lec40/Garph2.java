@@ -81,7 +81,7 @@ public class Garph2 {
 		Queue<Integer> q = new LinkedList<>();
 		HashSet<Integer> visited = new HashSet<>();
 		for (int src : map.keySet()) {
-			if(visited.contains(src)){
+			if (visited.contains(src)) {
 				continue;
 			}
 			q.add(src);
@@ -107,5 +107,36 @@ public class Garph2 {
 		}
 		System.out.println();
 
+	}
+
+	public void DFT() {
+		Stack<Integer> st = new Stack<>();
+		HashSet<Integer> visited = new HashSet<>();
+		for (int src : map.keySet()) {
+			if (visited.contains(src)) {
+				continue;
+			}
+			st.push(src);
+			while (!st.isEmpty()) {
+				// 1. remove
+				int r = st.pop();
+				// 2. Ignore if Already visited
+				if (visited.contains(r)) {
+					continue;
+				}
+				// 3. Marked visited
+				visited.add(r);
+				// 4. Self Work
+				System.out.print(r + " ");
+				// 5. Add unvisited nbrs
+				for (int nbrs : map.get(r).keySet()) {
+					if (!visited.contains(nbrs)) {
+						st.push(nbrs);
+					}
+				}
+
+			}
+		}
+		System.out.println();
 	}
 }
